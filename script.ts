@@ -69,7 +69,7 @@ if (reels) {
   reel3div.id = "reel3";
   reel3div.classList.add("reel");
   // reel3div.innerText = "Reel 3";
-  reels.appendChild(reel3div);
+  reels.appendChild(reel3div); 
 
   reel3.forEach((symbol) => {
     const img = document.createElement("img");
@@ -79,10 +79,7 @@ if (reels) {
     img.alt = symbol[1];
     img.title = symbol[1];
     reel3div.appendChild(img);
-  }
-
-
-  );
+  });
 }
 
 // get button#spin and add event listener
@@ -91,20 +88,19 @@ if (spinButton) {
   spinButton.addEventListener("click", () => {
     // set spin amount
     const spinAmount = Math.floor(Math.random() * reel1.length) * -100 + 100;
-    
+
     // set style CSS variable for animation
     document.documentElement.style.setProperty(
       "--reel1-position",
       `${spinAmount}%`
-          );
+    );
     document.documentElement.style.setProperty(
       "--reel2-position",
-      `${spinAmount + Math.floor(Math.random()* 3) * 100}%`
+      `${spinAmount + Math.floor(Math.random() * 3) * 100}%`
     );
     document.documentElement.style.setProperty(
       "--reel3-position",
-      `${spinAmount - Math.floor(Math.random()* 3) * 100}%`
+      `${spinAmount - Math.floor(Math.random() * 3) * 100}%`
     );
-  }
-    );
+  });
 }
