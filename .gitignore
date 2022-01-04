@@ -1,0 +1,9 @@
+node_modules
+exr
+svg
+full reel
+vendor*
+
+*.blend*
+*.zip
+*.afdesign

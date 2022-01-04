@@ -1,0 +1,16 @@
+{
+  "name": "slot-machine-test",
+  "version": "0.0.1",
+  "description": "a javascript slot machine game",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TRBRY",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0"
+  }
+}
