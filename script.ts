@@ -8,24 +8,24 @@ type Slots = SlotInfo[];
 const reels = document.getElementById("reels");
 
 // symbols [id, name, image]
-const slotSymbols: Slots = [
-  [1, "Cherry", "./assets/png/cherry_512.png"],
-  [2, "Lemon", "./assets/png/lemon_512.png"],
-  [3, "Bell", "./assets/png/bell_512.png"],
-  [4, "Seven", "./assets/png/seven_512.png"],
-  [5, "Watermelon", "./assets/png/watermelon_512.png"],
-  [6, "Crown", "./assets/png/crown_512.png"],
-  [7, "Bar", "./assets/png/bar_512.png"],
-  [8, "Plum", "./assets/png/plum_512.png"],
-];
+// const slotSymbols: Slots = [
+//   [1, "Cherry", "./assets/png/cherry_512.png"],
+//   [2, "Lemon", "./assets/png/lemon_512.png"],
+//   [3, "Bell", "./assets/png/bell_512.png"],
+//   [4, "Seven", "./assets/png/seven_512.png"],
+//   [5, "Watermelon", "./assets/png/watermelon_512.png"],
+//   [6, "Crown", "./assets/png/crown_512.png"],
+//   [7, "Bar", "./assets/png/bar_512.png"],
+//   [8, "Plum", "./assets/png/plum_512.png"],
+// ];
 
-function generateReel(amount: number, symbols: Slots): Slots {
-  const reel: [number, string, string][] = [];
-  for (let i = 0; i < amount; i++) {
-    reel.push(symbols[Math.floor(Math.random() * symbols.length)]);
-  }
-  return reel;
-}
+// function generateReel(amount: number, symbols: Slots): Slots {
+//   const reel: [number, string, string][] = [];
+//   for (let i = 0; i < amount; i++) {
+//     reel.push(symbols[Math.floor(Math.random() * symbols.length)]);
+//   }
+//   return reel;
+// }
 
 const reel1 = generateReel(20, slotSymbols);
 const reel2 = generateReel(20, slotSymbols);

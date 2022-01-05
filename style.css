@@ -32,6 +32,10 @@ body {
   /* background-color: hsl(0, 12%, 29%); */
 }
 
+#reels canvas {
+  display: none;
+}
+
 .reel {
   --gradient-start: 40%;
   --gradient-end: calc(100% - var(--gradient-start));
@@ -67,13 +71,13 @@ body {
   transition: transform 400ms cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 .slot-symbol.reel1 {
-  transform: translateY(calc(var(--reel1-position)));
+  transform: translateY(calc(var(--reel1-speed) * -1));
 }
 .slot-symbol.reel2 {
-  transform: translateY(calc(var(--reel2-position)));
+  transform: translateY(calc(var(--reel2-speed) * -1));
 }
 .slot-symbol.reel3 {
-  transform: translateY(calc(var(--reel3-position)));
+  transform: translateY(calc(var(--reel3-speed) * -1));
 }
 
 button#spin {
