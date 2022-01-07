@@ -1,129 +1,60 @@
-// setup a state machine for the game
-// setup, waiting, spin, score, reset
+export * as GM from "./game_manager.js";
+import { buildSlotMachine } from "./add_element.js";
+import { reelManager } from "./reel_manager.js";
 
-// import { SlotReel } from "./slot_reel";
+// setup a game manager state machine
 
+export enum GameState {
+  INIT,
+  BUILD_SLOT_MACHINE,
+  MAKE_REEL,
 
-enum GameState {
-  Setup,
-  Waiting,
-  Spin,
-  Score,
-  Reset
+  READY,
+  SPIN,
+  SPIN_COMPLETE,
+
+  SCORE,
+  SCORE_COMPLETE,
 }
 
-class GameManager {
-  private static instance: GameManager;
-  private gameState: GameState;
-  private playerMoney: number;
-  private winnings: number;
-  private jackpot: number;
-  private turn: number;
-  private playerBet: number;
-  private winNumber: number;
-  private lossNumber: number;
+// export class GameData {
+//   state: GameState;
+//   machineSelector: string;
+//   reelAmount: number;
+//   constructor(state: GameState, machineSelector: string, reelAmount = 3) {
+//     this.state = state;
+//     this.machineSelector = machineSelector;
+//     this.reelAmount = reelAmount;
+//   }
+// }
 
-  private constructor() {
-    this.gameState = GameState.Setup;
-    this.playerMoney = 1000;
-    this.winnings = 0;
-    this.jackpot = 5000;
-    this.turn = 0;
-    this.playerBet = 0;
-    this.winNumber = 0;
-    this.lossNumber = 0;
-  }
+// set game state and log it
+function setState(state: GameState) {
+  console.log(`Game State: ${state}`);
+  return GAMEMANAGER.state = state;
+}
 
-  public static getInstance(): GameManager {
-    if (!GameManager.instance) {
-      GameManager.instance = new GameManager();
+
+
+
+export const GAMEMANAGER = {
+  state: GameState.INIT,
+
+  logState: function () {
+    console.log(`Game State: ${this.state}`);
+  },
+
+  buildSlotMachine: (amountReels?: number, selector?: string): void => {
+    if (amountReels) {
+      setState(GameState.BUILD_SLOT_MACHINE);
+      buildSlotMachine(amountReels, selector);
+      setState(GameState.READY);
     }
-    return GameManager.instance;
-  }
+  },
 
-  public getGameState(): GameState {
-    return this.gameState;
-  }
-
-  public setGameState(gameState: GameState): void {
-    this.gameState = gameState;
-  }
-
-  public getPlayerMoney(): number {
-    return this.playerMoney;
-  }
-
-  public setPlayerMoney(playerMoney: number): void {
-    this.playerMoney = playerMoney;
-  }
-
-  public getWinnings(): number {
-    return this.winnings;
-  }
-
-  public setWinnings(winnings: number): void {
-    this.winnings = winnings;
-  }
-
-  public getJackpot(): number {
-    return this.jackpot;
-  }
-
-  public setJackpot(jackpot: number): void {
-    this.jackpot = jackpot;
-  }
-
-  public getTurn(): number {
-    return this.turn;
-  }
-
-  public setTurn(turn: number): void {
-    this.turn = turn;
-  }
-
-  public getPlayerBet(): number {
-    return this.playerBet;
-  }
-
-  public setPlayerBet(playerBet: number): void {
-    this.playerBet = playerBet;
-  }
-
-  public getWinNumber(): number {
-    return this.winNumber;
-  }
-
-  public setWinNumber(winNumber: number): void {
-    this.winNumber = winNumber;
-  }
-
-  public getLossNumber(): number {
-    return this.lossNumber;
-  }
-
-  public setLossNumber(lossNumber: number): void {
-    this.lossNumber = lossNumber;
-  }
-
-  public reset(): void {
-    this.playerMoney = 1000;
-    this.winnings = 0;
-    this.jackpot = 5000;
-    this.turn = 0;
-    this.playerBet = 0;
-    this.winNumber = 0;
-    this.lossNumber = 0;
-  }
-}
-
-const gameManager = GameManager.getInstance();
-console.log(gameManager);
-
-if (gameManager.getGameState() === GameState.Setup) {
-  console.log("Setup");
-} else if (gameManager.getGameState() === GameState.Waiting) {
-  console.log("Waiting");
-}
-
-gameManager.setGameState(GameState.Waiting);
-console.log(gameManager);
+  createReel: (reelID: number): void => {
+    setState(GameState.MAKE_REEL);
+    reelManager.createReel(reelID);
+    setState(GameState.READY);
+  },
+};
