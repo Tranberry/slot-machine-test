@@ -1,10 +1,3 @@
-* {
-  /* FIXME: REMOVE WHOLE SELECTOR */
-  min-height: 1em;
-  background-color: rgba(0, 0, 0, 0.1);
-  outline: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 body {
   background-color: rgb(48, 39, 43);
   min-height: 100vh;
@@ -86,18 +79,22 @@ button:active {
 }
 
 .reel {
+  --animation-speed: 450ms;
 	background-image: url(./assets/reel1.webp);
 	background-repeat: repeat-y;
 	height: calc(128px * 3);
 	background-size: 128px;
+  border-radius: 1rem;
   grid-row: 1;
+  transition: background-position var(--animation-speed) cubic-bezier(.39,.58,.37,1.3);
 }
 
 #reels {
 	display: grid;
-	/* grid-template-columns: repeat(6, 128px); */
 	grid-auto-columns: 128px;
 	grid-auto-flow: column;
+	justify-content: center;
+  gap: 1rem;
 }
 
 #spin {
