@@ -7,7 +7,7 @@ function spinTheReels() {
     // get slot machine .reel
     if (slotMachineSelector) {
         const slotMachineReel = slotMachineSelector.querySelectorAll('.reel');
-        // FIXME: this is currently throwing wring results due to we not yet generating a known reel
+        // FIXME: this is currently throwing wrong results due to we not yet generating a known reel
         // an array of slot symbols ex: ["BAR", "BELL", "CHERRY", "CROWN", "LEMON", "PLUM", "SEVEN", "WATERMELON"]
         const symbolList = slotSymbolImages.getSlotSymbolList();
         let currentPosition = 0;

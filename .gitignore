@@ -3,6 +3,7 @@ exr
 svg
 full reel
 vendor*
+assets
 
 *.blend*
 *.zip

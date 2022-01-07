@@ -2,5 +2,10 @@
   // hide filetypes
   "files.exclude": {
     "**/**.map": true,
+    "**/**.zip": true,
+    "**/**exr": true,
+    "**/**blend*": true,
+    "**/**.afdesign": true,
+    "**node_modules": true,
   },
 }
