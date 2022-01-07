@@ -1,6 +1,7 @@
 export * as GM from "./game_manager.js";
 import { buildSlotMachine } from "./add_element.js";
 import { reelManager } from "./reel_manager.js";
+import { spinTheReels } from "./spin_reel.js";
 // setup a game manager state machine
 export var GameState;
 (function (GameState) {
@@ -24,7 +25,7 @@ export var GameState;
 //   }
 // }
 // set game state and log it
-function setState(state) {
+export function setState(state) {
     console.log(`Game State: ${state}`);
     return GAMEMANAGER.state = state;
 }
@@ -45,5 +46,9 @@ export const GAMEMANAGER = {
         reelManager.createReel(reelID);
         setState(GameState.READY);
     },
+    spinReels: () => {
+        setState(GameState.SPIN);
+        spinTheReels();
+    }
 };
 //# sourceMappingURL=game_manager.js.map
