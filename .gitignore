@@ -1,9 +1,9 @@
-node_modules
+node_modules*
 exr
 svg
 full reel
 vendor*
-assets
+assets*
 
 *.blend*
 *.zip
