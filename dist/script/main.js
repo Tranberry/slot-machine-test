@@ -1,10 +1,7 @@
 import { GM } from './game_manager.js';
 // import { spinTheReels } from './spin_reel.js';
-GM.GAMEMANAGER.logState();
-GM.GAMEMANAGER.buildSlotMachine(3);
-GM.GAMEMANAGER.logState();
-GM.GAMEMANAGER.createReel(1);
-// TODO: move to game manager
-// spinTheReels();
+// Builds the html slot machine with X number of reels
+GM.GAMEMANAGER.buildSlotMachine(5);
+// adds a spin button and manage the spin 'animation'
 GM.GAMEMANAGER.spinReels();
 //# sourceMappingURL=main.js.map

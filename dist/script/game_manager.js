@@ -14,17 +14,6 @@ export var GameState;
     GameState[GameState["SCORE"] = 6] = "SCORE";
     GameState[GameState["SCORE_COMPLETE"] = 7] = "SCORE_COMPLETE";
 })(GameState || (GameState = {}));
-// export class GameData {
-//   state: GameState;
-//   machineSelector: string;
-//   reelAmount: number;
-//   constructor(state: GameState, machineSelector: string, reelAmount = 3) {
-//     this.state = state;
-//     this.machineSelector = machineSelector;
-//     this.reelAmount = reelAmount;
-//   }
-// }
-// set game state and log it
 export function setState(state) {
     console.log(`Game State: ${state}`);
     return GAMEMANAGER.state = state;
