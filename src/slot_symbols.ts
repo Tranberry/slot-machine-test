@@ -23,3 +23,4 @@ export const slotSymbolImages = {
     SEVEN: './assets/symbols/Seven_512.png',
     WATERMELON: './assets/symbols/Watermelon_512.png'
 }
+ 

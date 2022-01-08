@@ -26,3 +26,4 @@ export function buildSlotMachine(amountReels = 3, selector = "body"): HTMLElemen
   }
   return slotMachine;
 }
+ 

@@ -15,7 +15,7 @@ function spinTheReels() {
     // an array of slot symbols ex: ["BAR", "BELL", "CHERRY", "CROWN", "LEMON", "PLUM", "SEVEN", "WATERMELON"]
     const symbolList = slotSymbolImages.getSlotSymbolList();
 
-    let currentPosition = 0;
+    let currentPosition = 0; 
 
     // add button element to slot machine selector
     if (slotMachineReel) {
