@@ -6,7 +6,6 @@ export function makeCanvasImage() {
   // get symbols from ReelSymbolImages into an array
   const symbols = ReelSymbolImages.map(symbol => symbol.path);
   const symbolList:HTMLImageElement[] = []
-  
   // <array>.forEach((item, index) => {})
   symbols.forEach((symbol, index) => {
     const img = new Image();
@@ -17,6 +16,9 @@ export function makeCanvasImage() {
     htmlBody.appendChild(img);
     symbolList.push(img);
   });
+
+  console.log(symbolList);
+
 
   const symbolHeight = 128;
   const symbolWidth = 128;

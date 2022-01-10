@@ -14,6 +14,7 @@ export function makeCanvasImage() {
         htmlBody.appendChild(img);
         symbolList.push(img);
     });
+    console.log(symbolList);
     const symbolHeight = 128;
     const symbolWidth = 128;
     const amountOfSymbolsOnReel = 20;
