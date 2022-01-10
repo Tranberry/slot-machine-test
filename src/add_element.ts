@@ -1,4 +1,4 @@
-export * as add_element from './add_element.js';
+export * as add_element from "./add_element.js";
 
 // setup slot machine html elements
 // 

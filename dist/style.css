@@ -93,3 +93,18 @@ button:active {
   grid-row: 2;
   grid-column: 1 / -1;
 }
+
+/* for canvas image preloading */
+.preload {
+	display: none;
+}
+
+/* FIXME: remove after testing */
+canvas {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.3rem;
+  border: .3rem solid lightseagreen;
+  margin: 0 0 1rem 0;
+  display: block;
+}

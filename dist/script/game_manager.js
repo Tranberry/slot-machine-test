@@ -26,6 +26,7 @@ export const GAMEMANAGER = {
     buildSlotMachine: (amountReels, selector) => {
         if (amountReels) {
             setState(GameState.BUILD_SLOT_MACHINE);
+            // GameState.BUILD_SLOT_MACHINE;
             buildSlotMachine(amountReels, selector);
             setState(GameState.READY);
         }

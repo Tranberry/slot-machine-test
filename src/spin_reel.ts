@@ -1,19 +1,19 @@
 import { GameState, setState } from "./game_manager.js";
-import { slotSymbolImages } from "./slot_symbols.js";
+import { ReelSymbolImages } from "./slot_symbols.js";
 export { spinTheReels };
 
 // get slot machine selector <section>
 spinTheReels();
 function spinTheReels() {
-  const slotMachineSelector = document.querySelector('#slot-machine');
-  const reelsSection = document.querySelector('#reels');
+  const slotMachineSelector = document.querySelector("#slot-machine");
+  const reelsSection = document.querySelector("#reels");
   // get slot machine .reel
   if (reelsSection && slotMachineSelector) {
-    const slotMachineReel: NodeListOf<HTMLDivElement> = reelsSection.querySelectorAll('.reel');
+    const slotMachineReel: NodeListOf<HTMLDivElement> = reelsSection.querySelectorAll(".reel");
 
-    // FIXME: this is currently throwing wring results due to we not yet generating a known reel
+    // FIXME: this is currently throwing wrong results due to we not yet generating a known reel
     // an array of slot symbols ex: ["BAR", "BELL", "CHERRY", "CROWN", "LEMON", "PLUM", "SEVEN", "WATERMELON"]
-    const symbolList = slotSymbolImages.getSlotSymbolList();
+    const symbolList = ReelSymbolImages.map((symbol) => symbol.name);
 
     let currentPosition = 0; 
 

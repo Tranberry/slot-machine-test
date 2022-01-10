@@ -16,5 +16,8 @@
         "@typescript-eslint"
     ],
     "rules": {
+        // only double quotes
+        "quotes":"error"
+
     }
 }

@@ -1,25 +1,22 @@
-export var slotSymbols;
-(function (slotSymbols) {
-    slotSymbols[slotSymbols["BAR"] = 0] = "BAR";
-    slotSymbols[slotSymbols["BELL"] = 1] = "BELL";
-    slotSymbols[slotSymbols["CHERRY"] = 2] = "CHERRY";
-    slotSymbols[slotSymbols["CROWN"] = 3] = "CROWN";
-    slotSymbols[slotSymbols["LEMON"] = 4] = "LEMON";
-    slotSymbols[slotSymbols["PLUM"] = 5] = "PLUM";
-    slotSymbols[slotSymbols["SEVEN"] = 6] = "SEVEN";
-    slotSymbols[slotSymbols["WATERMELON"] = 7] = "WATERMELON";
-})(slotSymbols || (slotSymbols = {}));
-export const slotSymbolImages = {
-    getSlotSymbolList: () => {
-        return ['BAR', 'BELL', 'CHERRY', 'CROWN', 'LEMON', 'PLUM', 'SEVEN', 'WATERMELON',];
-    },
-    BAR: './assets/symbols/Bar_512.png',
-    BELL: './assets/symbols/Bell_512.png',
-    CHERRY: './assets/symbols/Cherry_512.png',
-    CROWN: './assets/symbols/Crown_512.png',
-    LEMON: './assets/symbols/Lemon_512.png',
-    PLUM: './assets/symbols/Plum_512.png',
-    SEVEN: './assets/symbols/Seven_512.png',
-    WATERMELON: './assets/symbols/Watermelon_512.png'
-};
+class ReelSymbol {
+    constructor(name) {
+        const assetPath = "./assets/symbols/";
+        const assetName = `${name.toLowerCase()}_128.png`;
+        this.name = name.toUpperCase();
+        this.path = `${assetPath}${assetName}`;
+        this.img = new Image();
+        this.img.src = this.path;
+        this.img.classList.add("reel-symbol");
+    }
+}
+export const ReelSymbolImages = [
+    new ReelSymbol("BAR"),
+    new ReelSymbol("BELL"),
+    new ReelSymbol("CHERRY"),
+    new ReelSymbol("CROWN"),
+    new ReelSymbol("LEMON"),
+    new ReelSymbol("PLUM"),
+    new ReelSymbol("SEVEN"),
+    new ReelSymbol("WATERMELON"),
+];
 //# sourceMappingURL=slot_symbols.js.map
