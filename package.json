@@ -4,7 +4,7 @@
   "description": "a javascript slot machine game",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "TRBRY",
   "license": "MIT",
