@@ -27,15 +27,22 @@ export function makeCanvasImage() {
     const randomSymbol = () => {
         return Math.floor(Math.random() * symbols.length);
     };
+    const displayedSymbols = [];
     for (let i = 0; i < amountOfSymbolsOnReel; i++) {
         const randomSymbolIndex = randomSymbol();
         const img = symbolList[randomSymbolIndex].cloneNode(false);
         if (img && ctx) {
-            img.onload = function () {
-                ctx.drawImage(img, 0, i * symbolHeight);
-            };
+            displayedSymbols.push(new Promise((resolve, reject) => {
+                img.onload = function () {
+                    ctx.drawImage(img, 0, i * symbolHeight);
+                    resolve(undefined); // have to provide it with some value
+                };
+                img.onerror = function (err) {
+                    reject(err);
+                };
+            }));
         }
     }
-    return canvas;
+    return Promise.all(displayedSymbols).then(() => canvas);
 }
 //# sourceMappingURL=reel_builder.js.map

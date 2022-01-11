@@ -1,11 +1,11 @@
 import { ReelSymbolImages } from "./slot_symbols.js";
 
-export function makeCanvasImage() {
+export function makeCanvasImage(): Promise<HTMLCanvasElement> {
   const htmlBody = document.getElementsByTagName("body")[0];
   
   // get symbols from ReelSymbolImages into an array
   const symbols = ReelSymbolImages.map(symbol => symbol.path);
-  const symbolList:HTMLImageElement[] = []
+  const symbolList: HTMLImageElement[] = []
   // <array>.forEach((item, index) => {})
   symbols.forEach((symbol, index) => {
     const img = new Image();
@@ -38,6 +38,7 @@ export function makeCanvasImage() {
     return Math.floor(Math.random() * symbols.length);
   };
 
+  const displayedSymbols = [];
   for (let i = 0; i < amountOfSymbolsOnReel; i++) {
     const randomSymbolIndex = randomSymbol();
 
@@ -45,10 +46,16 @@ export function makeCanvasImage() {
       false
     ) as HTMLImageElement;
     if (img && ctx) {
-      img.onload = function () {
-        ctx.drawImage(img, 0, i * symbolHeight);
-      };
+        displayedSymbols.push(new Promise((resolve, reject) => {
+            img.onload = function () {
+                ctx.drawImage(img, 0, i * symbolHeight);
+                resolve(undefined); // have to provide it with some value
+            };
+            img.onerror = function(err) {
+                reject(err);
+            }
+        }));
     }
   } 
-  return canvas;
+  return Promise.all(displayedSymbols).then(() => canvas);
 }
