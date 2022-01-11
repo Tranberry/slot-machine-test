@@ -14,12 +14,13 @@ export function makeCanvasImage() {
         htmlBody.appendChild(img);
         symbolList.push(img);
     });
-    console.log(symbolList);
+    // console.log(symbolList);
     const symbolHeight = 128;
     const symbolWidth = 128;
     const amountOfSymbolsOnReel = 20;
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
+    canvas.id = "reelTEST";
     htmlBody.appendChild(canvas);
     canvas.width = symbolWidth;
     canvas.height = symbolHeight * amountOfSymbolsOnReel;
@@ -35,5 +36,6 @@ export function makeCanvasImage() {
             };
         }
     }
+    return canvas;
 }
 //# sourceMappingURL=reel_builder.js.map

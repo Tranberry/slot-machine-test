@@ -108,3 +108,12 @@ canvas {
   margin: 0 0 1rem 0;
   display: block;
 }
+
+#testImg {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  border: .3rem solid rgb(166, 32, 178);
+  margin: 0 0 1rem 0;
+  display: block;
+}

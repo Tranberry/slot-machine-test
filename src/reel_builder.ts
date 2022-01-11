@@ -17,7 +17,7 @@ export function makeCanvasImage() {
     symbolList.push(img);
   });
 
-  console.log(symbolList);
+  // console.log(symbolList);
 
 
   const symbolHeight = 128;
@@ -26,6 +26,8 @@ export function makeCanvasImage() {
 
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
+
+  canvas.id = "reelTEST";
 
   htmlBody.appendChild(canvas);
 
@@ -47,5 +49,6 @@ export function makeCanvasImage() {
         ctx.drawImage(img, 0, i * symbolHeight);
       };
     }
-  }
+  } 
+  return canvas;
 }

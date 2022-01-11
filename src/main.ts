@@ -8,8 +8,20 @@ GM.GAMEMANAGER.buildSlotMachine(1);
 // adds a spin button and manage the spin 'animation'
 GM.GAMEMANAGER.spinReels();
 
-makeCanvasImage();
-
+const imgSrc = makeCanvasImage();
 // GameMNG.logState();
 // GameMNG.setState(GameMNG.listStates()[1]);
 // GameMNG.logState();
+
+// *****************************************************************************
+
+setTimeout(function() {
+  const canvas:HTMLCanvasElement = document.getElementById("reelTEST");
+  const dataURL = canvas.toDataURL("image/png");
+  
+  const testImg = document.createElement("img");
+  testImg.src = dataURL;
+  testImg.id = "testImg";
+  
+  document.body.appendChild(testImg);
+}, 200);
