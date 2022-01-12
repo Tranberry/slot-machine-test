@@ -8,13 +8,20 @@ GM.GAMEMANAGER.spinReels();
 // const imgSrc = makeCanvasImage();
 // GameMNG.logState();
 // GameMNG.setState(GameMNG.listStates()[1]);
-// GameMNG.logState();
+// console.log(GameMNG);
 // *****************************************************************************
-makeCanvasImage().then(canvas => {
+makeCanvasImage().then((canvas) => {
     const dataURL = canvas.toDataURL("image/png");
     const testImg = document.createElement("img");
+    const reelDiv = document.querySelector(".reel");
     testImg.src = dataURL;
     testImg.id = "testImg";
+    if (reelDiv) {
+        // set url to css variable
+        // document.body.style.setProperty("--reel-image", `url(${dataURL})`);
+        // set background to --reel-image
+        reelDiv.style.backgroundImage = `url(${dataURL})`;
+    }
     document.body.appendChild(testImg);
 });
 //# sourceMappingURL=main.js.map

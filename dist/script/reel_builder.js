@@ -1,8 +1,9 @@
 import { ReelSymbolImages } from "./slot_symbols.js";
+// export const symbolOrderIndex = []
 export function makeCanvasImage() {
     const htmlBody = document.getElementsByTagName("body")[0];
     // get symbols from ReelSymbolImages into an array
-    const symbols = ReelSymbolImages.map(symbol => symbol.path);
+    const symbols = ReelSymbolImages.map((symbol) => symbol.path);
     const symbolList = [];
     // <array>.forEach((item, index) => {})
     symbols.forEach((symbol, index) => {
@@ -17,7 +18,7 @@ export function makeCanvasImage() {
     // console.log(symbolList);
     const symbolHeight = 128;
     const symbolWidth = 128;
-    const amountOfSymbolsOnReel = 20;
+    const amountOfSymbolsOnReel = 11;
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     canvas.id = "reelTEST";
@@ -29,8 +30,9 @@ export function makeCanvasImage() {
     };
     const displayedSymbols = [];
     for (let i = 0; i < amountOfSymbolsOnReel; i++) {
-        const randomSymbolIndex = randomSymbol();
-        const img = symbolList[randomSymbolIndex].cloneNode(false);
+        const symbolSelector = randomSymbol();
+        // symbolOrderIndex.push(symbolSelector);
+        const img = symbolList[symbolSelector].cloneNode(false);
         if (img && ctx) {
             displayedSymbols.push(new Promise((resolve, reject) => {
                 img.onload = function () {
@@ -43,6 +45,7 @@ export function makeCanvasImage() {
             }));
         }
     }
+    // console.log(symbolOrderIndex);
     return Promise.all(displayedSymbols).then(() => canvas);
 }
 //# sourceMappingURL=reel_builder.js.map

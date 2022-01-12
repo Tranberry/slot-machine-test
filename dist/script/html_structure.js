@@ -1,4 +1,3 @@
-export * as add_element from "./add_element.js";
 // setup slot machine html elements
 // 
 /**
@@ -25,4 +24,4 @@ export function structureSlotMachine(reelsAmount = 3, htmlSelector = "body") {
     }
     return slotMachine;
 }
-//# sourceMappingURL=add_element.js.map
+//# sourceMappingURL=html_structure.js.map

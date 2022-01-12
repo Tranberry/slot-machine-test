@@ -4,9 +4,9 @@
 class Manager {
   state: string;
   states: string[];
-  constructor(states: string[]) {
+  constructor(states: string[], state: string = states[0]) {
     this.states = states;
-    this.state = this.states[0];
+    this.state = state;
   }
   public logState(): void {
     return console.log(`Game State: ${this.state}`);

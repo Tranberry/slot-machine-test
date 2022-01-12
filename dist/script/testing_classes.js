@@ -1,9 +1,9 @@
 // import { buildSlotMachine } from "./add_element.js";
 // import { spinTheReels } from "./spin_reel.js";
 class Manager {
-    constructor(states) {
+    constructor(states, state = states[0]) {
         this.states = states;
-        this.state = this.states[0];
+        this.state = state;
     }
     logState() {
         return console.log(`Game State: ${this.state}`);

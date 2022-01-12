@@ -1,5 +1,5 @@
 export * as GM from "./game_manager.js";
-import { buildSlotMachine } from "./add_element.js";
+import { structureSlotMachine } from "./html_structure.js";
 import { reelManager } from "./reel_manager.js";
 import { spinTheReels } from "./spin_reel.js";
 
@@ -34,7 +34,7 @@ export const GAMEMANAGER = {
     if (amountReels) {
       setState(GameState.BUILD_SLOT_MACHINE);
       // GameState.BUILD_SLOT_MACHINE;
-      buildSlotMachine(amountReels, selector);
+      structureSlotMachine(amountReels, selector);
       setState(GameState.READY);
     }
   },
