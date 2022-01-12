@@ -4,6 +4,7 @@ svg
 full reel
 vendor*
 assets*
+originals*
 
 *.blend*
 *.zip
