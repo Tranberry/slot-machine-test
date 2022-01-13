@@ -5,6 +5,7 @@ full reel
 vendor*
 assets*
 originals*
+dist/script*
 
 *.blend*
 *.zip
