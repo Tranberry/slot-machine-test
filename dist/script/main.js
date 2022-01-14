@@ -38,9 +38,6 @@ _makeCanvasImage(choiceOne).then((canvas) => {
     testImg.src = dataURL;
     testImg.id = "testImg";
     if (reelDiv) {
-        // set url to css variable
-        // document.body.style.setProperty("--reel-image", `url(${dataURL})`);
-        // set background to --reel-image
         reelDiv.style.backgroundImage = `url(${dataURL})`;
     }
     document.body.appendChild(testImg);

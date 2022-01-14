@@ -45,8 +45,10 @@ const choiceOne = _chooseReelSymbols(ReelSymbolImages, 11, true);
 // console.log(choiceOne);
 // console.log(choiceTwo);
 
+
 _makeCanvasImage(choiceOne).then((canvas) => {
   const dataURL = canvas;
+  
 
   const testImg = document.createElement("img");
   const reelDiv = document.querySelector(".reel") as HTMLDivElement;
@@ -54,9 +56,7 @@ _makeCanvasImage(choiceOne).then((canvas) => {
   testImg.id = "testImg";
 
   if (reelDiv) {
-    // set url to css variable
-    // document.body.style.setProperty("--reel-image", `url(${dataURL})`);
-    // set background to --reel-image
+    
     reelDiv.style.backgroundImage = `url(${dataURL})`;
   }
 
